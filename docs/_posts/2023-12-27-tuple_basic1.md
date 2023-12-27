@@ -1,0 +1,457 @@
+---
+layout:post
+title:"tuple basic 1"
+date: 2023-12-27  22:50:50 +0700
+categories:jekyull update
+---
+
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNgNrUneOtSAd/slm5dBzPG",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/amondmomo/amondmomo.github.io/blob/master/%5BPB_2024%5D_tuple.ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 튜플 사용 기본"
+      ],
+      "metadata": {
+        "id": "4_SJQq0wQBH0"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 하나씩 할당\n",
+        "a=1\n",
+        "b=2\n",
+        "c=3\n",
+        "a,b,c"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "GMIiqD7DQEeT",
+        "outputId": "3f80a1a6-3aa8-4a03-fc42-8cbd95deeefd"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(1, 2, 3)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 다중할당1\n",
+        "name, age, sex, height = 'Amond','22','M',168\n",
+        "name, age, sex, height"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "cEDDlTtfQUc1",
+        "outputId": "5e32328e-5134-4173-a077-5ab0d348aa7b"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "('Amond', '22', 'M', 168)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 다중할당2\n",
+        "_seoul = (37,127)\n",
+        "lat,long = _seoul\n",
+        "[lat,long]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "LFnIi8bsQkRX",
+        "outputId": "97dc1327-e39d-4aa6-d4b6-39673841657d"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[37, 127]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 10
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### for문 + tuple"
+      ],
+      "metadata": {
+        "id": "SCjMhtwkP4JF"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "lst = [['Jelly',202212345,'M'],\n",
+        "       ['Amond',201921324,'F'],\n",
+        "       ['Mele',202111445,'M']]\n",
+        "lst"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "QfYAI2EpRZ9_",
+        "outputId": "75476116-9a39-4df4-9b0c-f0bb70732acd"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[['Jelly', 202212345, 'M'],\n",
+              " ['Amond', 201921324, 'F'],\n",
+              " ['Mele', 202111445, 'M']]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "for name,studentid,sex in lst:\n",
+        "  print(studentid,name)\n",
+        "# 리스트가 3개의 변수를 가지고 있으므로 3개의 변수를 할당해주어야함"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ac0y_VEkRv0L",
+        "outputId": "35486ae9-43f0-4876-9fb8-5ff1ffa73198"
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "202212345 Jelly\n",
+            "201921324 Amond\n",
+            "202111445 Mele\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "for name,*args  in lst:\n",
+        "    print(name)\n",
+        "# 변수 할당 대신 *args 사용"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "sfnGv0XSSZi7",
+        "outputId": "f956ad88-5ade-4a6e-c3d5-5426479f5bf8"
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Jelly\n",
+            "Amond\n",
+            "Mele\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 튜플 + 언패킹연산자"
+      ],
+      "metadata": {
+        "id": "Uyy42C2sSwr2"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "head, body, *tail = range(1,11)\n",
+        "head, body, tail"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "B-Ry4wJDS7Vn",
+        "outputId": "1b60223d-8167-4c47-e5a5-9967ddf3f1d7"
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(1, 2, [3, 4, 5, 6, 7, 8, 9, 10])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 17
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "head1,head2, *body, tail1,tail2,tail3 = range(1,11)\n",
+        "head1,head2, body, tail1,tail2,tail3"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "kM3FPmegSvGX",
+        "outputId": "cb29e510-5a30-482b-a379-8421a0334bd6"
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(1, 2, [3, 4, 5, 6, 7], 8, 9, 10)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 18
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## 튜플 연습"
+      ],
+      "metadata": {
+        "id": "XPK4o4UuUKPy"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "studentid = 202112345,\n",
+        "name = 'Amond',\n",
+        "studentid+name"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bwYIQVgEUFQd",
+        "outputId": "f24fbd8c-5972-4bbf-dc1b-0069cf7f65cc"
+      },
+      "execution_count": 34,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(202112345, 'Amond')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 34
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# A수업의 수강생과 점수 정보\n",
+        "lst = [['202151052', 'GuebinChoi', 30],\n",
+        "       ['202212342', 'Heung-min Son', 11],\n",
+        "       ['202334234', 'rei', 17],\n",
+        "       ['202242463', 'Yujin', 35],\n",
+        "       ['201355352', 'iseo', 31]]\n",
+        "lst"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "w1wqjXYsUxbD",
+        "outputId": "3a179264-5772-4231-adf0-90ad8e774c9f"
+      },
+      "execution_count": 37,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[['202151052', 'GuebinChoi', 30],\n",
+              " ['202212342', 'Heung-min Son', 11],\n",
+              " ['202334234', 'rei', 17],\n",
+              " ['202242463', 'Yujin', 35],\n",
+              " ['201355352', 'iseo', 31]]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 37
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 수강생은 몇 명이지?\n",
+        "len(lst)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "R_ii2gtmUk_Y",
+        "outputId": "264be2ce-889b-48c0-8272-74ce1e72a4dc"
+      },
+      "execution_count": 38,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "5"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 38
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 점수가 30점 미만인 사람은 몇 명?\n",
+        "sum([l[2]<30 for l in lst])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6mIMEoGyVZQE",
+        "outputId": "836ed854-ebe8-4c51-adda-fad504596ffc"
+      },
+      "execution_count": 42,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "2"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 42
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# lst 순서 변경\n",
+        "[[studentid,score,name] for studentid,name,score in lst]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "xvNkY5PKV7GK",
+        "outputId": "e99a38b7-17f2-434a-9ffd-c23ec5d9fbf8"
+      },
+      "execution_count": 46,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[['202151052', 30, 'GuebinChoi'],\n",
+              " ['202212342', 11, 'Heung-min Son'],\n",
+              " ['202334234', 17, 'rei'],\n",
+              " ['202242463', 35, 'Yujin'],\n",
+              " ['201355352', 31, 'iseo']]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 46
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "FgCguSCfWrUE"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
